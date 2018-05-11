@@ -28,7 +28,7 @@ Choose desired one from the following list.
 4. `EMNIST Digits`:		280,000 characters. 10 balanced classes.
 5. `EMNIST Letters`:		145,600 characters. 26 balanced classes.
 
-### 3. Decode images and labels
+### 3. Decode images
 
 Here I'll show an example in the case of `EMNIST Balanced` (whatever you choose, the following process is exactly the same).  
 
@@ -65,5 +65,4 @@ sh decode.sh
 ```
 
 After running `decode.sh`, A directory `emnist_balanced` is created in the current directory.  
-The training images are saved in `emnist_balanced/train`, while the test images are in `emnist_balanced/test`.
-```
+The training images are saved in `emnist_balanced/train`, while the validation images are in `emnist_balanced/test`.  

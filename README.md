@@ -3,7 +3,7 @@
 ## About this repository
 
 This repository provide you python scripts for decoding images
-of the [EMNSIT](https://www.nist.gov/itl/iad/image-group/emnist-dataset) from the official binary format files.
+of the [EMNIST](https://www.nist.gov/itl/iad/image-group/emnist-dataset) from the official binary format files.
 The EMNIST contains not only digits images but also alphabet ones.
 
 ## How to use our scripts

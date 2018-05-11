@@ -58,10 +58,10 @@ python decode.py gzip/emnist-balanced-test-images-idx3-ubyte gzip/emnist-balance
 #python decode.py gzip/emnist-letters-test-images-idx3-ubyte gzip/emnist-letters-test-labels-idx1-ubyte gzip/emnist-letters-mapping.txt ./emnist_letters/test
 ```
 
-Second, run `decode.sh`.
+Second, run `decode.sh` in your command line.
 
 ```bash
-sh decode.sh
+$ sh decode.sh
 ```
 
 After running `decode.sh`, A directory `emnist_balanced` is created in the current directory.  

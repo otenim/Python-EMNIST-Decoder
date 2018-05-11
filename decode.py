@@ -27,7 +27,11 @@ def main(args):
     # create mapping list
     with open(args.mapping_txtfile, 'r') as f:
         lines = f.readlines()
-        label_map = [chr(int(line.split(' ')[-1])) for line in lines]
+        label_map = {}
+        for line in lines:
+            class_id = int(line.split(' ')[0])
+            character = chr(int(line.split(' ')[1]))
+            label_map[class_id] = character
 
     # read images binfile header
     images_bitstream = bitstring.ConstBitStream(filename=args.images_binfile)

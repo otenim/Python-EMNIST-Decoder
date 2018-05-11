@@ -1,0 +1,11 @@
+emnist_balanced/
+emnist_byclass/
+emnist_bymerge/
+emnist_letters/
+emnist_digits/
+gzip/
+emnist_balanced.tar.gz
+emnist_byclass.tar.gz
+emnist_bymerge.tar.gz
+emnist_letters.tar.gz
+emnist_digits.tar.gz

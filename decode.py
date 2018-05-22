@@ -69,6 +69,7 @@ def main(args):
         record_image = images_bitstream.readlist('%d*uint:8' % (img_width*img_height))
         # reconstruct the image data
         pixel_data = np.array(record_image, dtype=np.uint8).reshape(img_height, img_width)
+        pixel_data = pixel_data.T
         image = Image.fromarray(pixel_data)
 
         # apply enhancements

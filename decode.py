@@ -27,11 +27,11 @@ def main(args):
     # create class-char-map
     with open(args.label_mapfile, 'r') as f:
         lines = f.readlines()
-        class_char_map = {}
+        labelmap = {}
         for line in lines:
             class_id = int(line.split(' ')[0])
-            character = chr(int(line.split(' ')[1]))
-            class_char_map[class_id] = character
+            char_id = int(line.split(' ')[1])
+            labelmap[class_id] = char_id
 
     # read images binfile header
     images_bitstream = bitstring.ConstBitStream(filename=args.images_binfile)
@@ -58,10 +58,10 @@ def main(args):
         # reconstruct the label id
         label = np.uint8(record_label)
         # decoded label character
-        character = class_char_map[label]
+        character = labelmap[label]
 
         # create subdirectory (if necessary)
-        subdir = os.path.join(args.output_dir, character)
+        subdir = os.path.join(args.output_dir, str(character))
         if os.path.exists(subdir) == False:
             os.makedirs(subdir)
 

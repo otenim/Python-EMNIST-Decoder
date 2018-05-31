@@ -4,6 +4,8 @@ emnist_bymerge/
 emnist_letters/
 emnist_digits/
 gzip/
+gzip.gz
+gzip.zip
 emnist_balanced.tar.gz
 emnist_byclass.tar.gz
 emnist_bymerge.tar.gz

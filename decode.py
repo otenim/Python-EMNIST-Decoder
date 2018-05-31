@@ -7,7 +7,7 @@ from PIL import Image, ImageEnhance
 parser = argparse.ArgumentParser()
 parser.add_argument('images_binfile')
 parser.add_argument('labels_binfile')
-parser.add_argument('mapping_txtfile')
+parser.add_argument('label_mapfile')
 parser.add_argument('output_dir')
 parser.add_argument('--brightness', type=float, default=1.0)
 parser.add_argument('--sharpness', type=float, default=2.0)
@@ -17,21 +17,21 @@ def main(args):
 
     args.images_binfile = os.path.expanduser(args.images_binfile)
     args.labels_binfile = os.path.expanduser(args.labels_binfile)
-    args.mapping_txtfile = os.path.expanduser(args.mapping_txtfile)
+    args.label_mapfile = os.path.expanduser(args.label_mapfile)
     args.output_dir = os.path.expanduser(args.output_dir)
 
     # create output root directory (if necessary)
     if os.path.exists(args.output_dir) == False:
         os.makedirs(args.output_dir)
 
-    # create mapping list
-    with open(args.mapping_txtfile, 'r') as f:
+    # create class-char-map
+    with open(args.label_mapfile, 'r') as f:
         lines = f.readlines()
-        label_map = {}
+        class_char_map = {}
         for line in lines:
             class_id = int(line.split(' ')[0])
             character = chr(int(line.split(' ')[1]))
-            label_map[class_id] = character
+            class_char_map[class_id] = character
 
     # read images binfile header
     images_bitstream = bitstring.ConstBitStream(filename=args.images_binfile)
@@ -58,7 +58,7 @@ def main(args):
         # reconstruct the label id
         label = np.uint8(record_label)
         # decoded label character
-        character = label_map[label]
+        character = class_char_map[label]
 
         # create subdirectory (if necessary)
         subdir = os.path.join(args.output_dir, character)
